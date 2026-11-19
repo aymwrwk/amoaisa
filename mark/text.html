@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bunny Girl</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarante&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic;
+      }
+      .amarante {
+        font-family: 'Amarante', serif;
+      }
+    </style>
+  </head>
+  <body class="bg-[#fef9f6] text-[#333] overflow-x-hidden">
+
+    <div id="searchable-content">
+      <div class="p-3">
+      <form id="searchForm" class="flex gap-2">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Buscar palavra..."
+          class="flex-1 px-4 py-2 border rounded focus:outline-none focus:ring"
+        />
+        <button
+          type="submit"
+          class="px-4 py-2 bg-pink-300 text-white rounded hover:bg-pink-400 transition"
+        >
+          Buscar
+        </button>
+      </form>
+   
+      <div id="bloco1" class="bg-white max-w-2xl mx-auto p-6 shadow my-4">
+
+  <div class="flex justify-center">
+  
+    <div class="px-1 py-0 mt-2">
+      <ul class="flex flex-row items-center justify-center gap-7 text-sm">
+
+        <li class="underline uppercase font-bold text-[19px] p-2">
+          <a href="../index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" height="36" viewBox="0 -960 960 960" width="40" fill="#E9D5FF">
+              <path d="M226.67-186.67h140v-246.66h226.66v246.66h140v-380L480-756.67l-253.33 190v380ZM160-120v-480l320-240 320 240v480H526.67v-246.67h-93.34V-120H160Zm320-352Z"/>
+            </svg>
+          </a>
+        </li>
+
+        <!-- Ícone Photos -->
+        <li class="underline uppercase font-bold text-[25px]">
+          <a href="./photos.html">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="36px" fill="#E9D5FF">
+              <path d="M350-384.67h394l-130.67-174-99.33 130-66-84.66-98 128.66Zm-70 171.34q-27 0-46.83-19.84Q213.33-253 213.33-280v-533.33q0-27 19.84-46.84Q253-880 280-880h533.33q27 0 46.84 19.83Q880-840.33 880-813.33V-280q0 27-19.83 46.83-19.84 19.84-46.84 19.84H280Zm0-66.67h533.33v-533.33H280V-280ZM146.67-80q-27 0-46.84-19.83Q80-119.67 80-146.67v-600h66.67v600h600V-80h-600ZM280-813.33V-280v-533.33Z"/>
+            </svg>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+        <hr />
+      
+      
+
+      <!-- Seção 6 -->
+      <section id="sec6" class="bg-white max-w-2xl mx-auto p-6 my-4">
+        <h2 class="bg-[#fef8f4] text-left text-[16px] p-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, doloribus magni hic quo odio eaque aut voluptatem dicta et error facere quis distinctio, facilis exercitationem deserunt numquam tempora fugiat officia.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, doloribus magni hic quo odio eaque aut voluptatem dicta et error facere quis distinctio, facilis exercitationem deserunt numquam tempora fugiat officia.
+        </h2>
+        <br>
+        <p class="italic text-[17px] text-[#555] mt-2">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, doloribus magni hic quo odio eaque aut voluptatem dicta et error facere quis distinctio, facilis exercitationem deserunt numquam tempora fugiat officia.
+        </p>
+        
+      </section>
+
+      <!-- Botão para voltar ao topo -->
+      <button id="backToTop" onclick="scrollToTop()" 
+        class="bg-pink-100 opacity-80 fixed bottom-6 right-6 font-bold py-2 px-4 rounded-full shadow-lg  ">
+        Subir ao Topo
+      </button>
+
+    </div>
+
+    <script>
+      // Mostrar/ocultar botão "Subir ao Topo"
+      const backToTopButton = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        backToTopButton.classList.toggle("60", window.scrollY > 300);
+      });
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Função para limpar highlights anteriores
+      function clearHighlights(container) {
+        const marks = container.querySelectorAll('mark');
+        marks.forEach(mark => {
+          const text = document.createTextNode(mark.textContent);
+          mark.replaceWith(text);
+        });
+      }
+
+      // Lógica de busca e scroll com destaque de palavra
+      document.getElementById("searchForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const termInput = document.getElementById("searchInput");
+        const term = termInput.value.trim();
+        if (!term) return;
+
+        const container = document.getElementById("searchable-content");
+        // Remove destaques antigos
+        clearHighlights(container);
+
+        const lowerTerm = term.toLowerCase();
+        const nodes = container.querySelectorAll("div[id], section[id]");
+        for (let node of nodes) {
+          if (node.innerText.toLowerCase().includes(lowerTerm)) {
+            // Destaca palavra usando regex na innerHTML
+            const regex = new RegExp(`(${term})`, 'gi');
+            node.innerHTML = node.innerHTML.replace(regex, '<mark>$1</mark>');
+
+            // Atualiza hash e faz scroll suave
+            window.location.hash = node.id;
+            node.scrollIntoView({ behavior: "smooth", block: "start" });
+
+            // Destaque temporário no bloco
+            node.classList.add("ring-4", "ring-pink-300");
+            setTimeout(() => node.classList.remove("ring-4", "ring-pink-300"), 2000);
+            return;
+          }
+        }
+        alert("Nenhuma palavra semelhante encontrada: " + term);
+      });
+    </script>
+
+  </body>
+</html>

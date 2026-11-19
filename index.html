@@ -1,11 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>73</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
 </head>
 
 <style>
@@ -19,7 +25,6 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-attachment: fixed;
-    
   }
 
   .texto-normal {
@@ -43,100 +48,505 @@
     font-weight: bolder;
   }
 
-  span{
+  span {
     background-color: white;
     color: black;
-  
     text-transform: uppercase;
   }
-  
+
+
+  /* =====================================================
+     PEDIDO DE NAMORO
+     ===================================================== */
+
+  .pedido-namoro {
+    width: 90%;
+    max-width: 650px;
+    margin: 70px auto 50px;
+    padding: 40px 30px;
+
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.88);
+    border: 2px solid white;
+
+    box-shadow: 8px 8px 0px #E9D5FF;
+  }
+
+  .pedido-numero {
+    color: #E9D5FF;
+    font-size: 11px;
+    margin-bottom: 25px;
+  }
+
+  .pedido-titulo {
+    font-size: clamp(20px, 5vw, 32px);
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+
+  .pedido-texto {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #e5e5e5;
+    max-width: 540px;
+    margin: 0 auto 30px;
+  }
+
+  .pedido-pergunta {
+    color: #E9D5FF;
+    font-size: clamp(16px, 4vw, 24px);
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .pedido-botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .pedido-botao {
+    padding: 15px 28px;
+
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+
+    border: 2px solid white;
+
+    transition: 0.2s ease;
+  }
+
+  .pedido-botao:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 0px #E9D5FF;
+  }
+
+  .botao-sim {
+    background-color: #E9D5FF;
+    color: black;
+  }
+
+  .botao-nao {
+    background-color: black;
+    color: white;
+  }
+
+  .pedido-resultado {
+    display: none;
+
+    margin-top: 30px;
+    padding-top: 25px;
+
+    border-top: 1px solid #555;
+  }
+
+  .pedido-resultado h2 {
+    color: #E9D5FF;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+
+  .pedido-resultado p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #ddd;
+  }
+
+  .pedido-voltar {
+    margin-top: 25px;
+
+    padding: 10px 18px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+  }
+
+
+  /* MOBILE */
+
+  @media (max-width: 768px) {
+
+    body {
+      background-image: none !important;
+    }
+
+    .pedido-namoro {
+      width: 92%;
+      margin: 45px auto 40px;
+      padding: 35px 20px;
+
+      box-shadow: 5px 5px 0px #E9D5FF;
+    }
+
+    .pedido-texto {
+      font-size: 16px;
+    }
+
+    .pedido-botoes {
+      flex-direction: column;
+    }
+
+    .pedido-botao {
+      width: 80%;
+      max-width: 260px;
+    }
+
+  }
 </style>
 
+
 <body class="bg-[#0a0a0a] text-white mt-2 p-3">
+
   <!-- Header -->
+
   <center>
-    
+
     <div class="">
-      
-      <button id="theme-toggle" class=" p-2 rounded-md h transition flex items-center justify-center">
-        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="text-black h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+
+      <button id="theme-toggle" class="p-2 rounded-md h transition flex items-center justify-center">
+
+        <svg id="icon-moon"
+          xmlns="http://www.w3.org/2000/svg"
+          class="text-black h-6 w-6 hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+
+          <path stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+
         </svg>
-        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h2m-18 0H3m15.364-6.364l1.414 1.414M4.222 19.778l1.414-1.414M19.778 19.778l-1.414-1.414M4.222 4.222l1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z" />
+
+
+        <svg id="icon-sun"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+
+          <path stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 3v2m0 14v2m9-9h2m-18 0H3m15.364-6.364l1.414 1.414M4.222 19.778l1.414-1.414M19.778 19.778l-1.414-1.414M4.222 4.222l1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z" />
+
         </svg>
+
       </button>
+
     </div>
+
   </center>
 
 
-
-
   <div class="flex flex-col md:flex-row">
+
     <div class="flex flex-col md:flex-row">
+
       <div class="md:w-1/4 border-r border-gray-300 dark:border-transparent px-4 py-4">
+
         <ul class="flex flex-row md:flex-col items-center justify-center md:items-start md:justify-start gap-12 text-sm">
+
           <li class="custom-text underline">
+
             <a href="./mark/text.html">
-              <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#E9D5FF"><path d="M319.33-246.67h321.34v-66.66H319.33v66.66Zm0-166.66h321.34V-480H319.33v66.67ZM226.67-80q-27 0-46.84-19.83Q160-119.67 160-146.67v-666.66q0-27 19.83-46.84Q199.67-880 226.67-880H574l226 226v507.33q0 27-19.83 46.84Q760.33-80 733.33-80H226.67Zm314-542.67v-190.66h-314v666.66h506.66v-476H540.67Zm-314-190.66v190.66-190.66 666.66-666.66Z"/></svg>
+
+              <svg xmlns="http://www.w3.org/2000/svg"
+                height="40px"
+                viewBox="0 -960 960 960"
+                width="40px"
+                fill="#E9D5FF">
+
+                <path d="M319.33-246.67h321.34v-66.66H319.33v66.66Zm0-166.66h321.34V-480H319.33v66.67ZM226.67-80q-27 0-46.84-19.83Q160-119.67 160-146.67v-666.66q0-27 19.83-46.84Q199.67-880 226.67-880H574l226 226v507.33q0 27-19.83 46.84Q760.33-80 733.33-80H226.67Zm314-542.67v-190.66h-314v666.66h506.66v-476H540.67Zm-314-190.66v190.66-190.66 666.66-666.66Z"/>
+
+              </svg>
+
             </a>
-          
+
           </li>
+
+
           <li class="custom-text underline">
+
             <a href="./mark/photos.html">
-              <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#E9D5FF"><path d="M350-384.67h394l-130.67-174-99.33 130-66-84.66-98 128.66Zm-70 171.34q-27 0-46.83-19.84Q213.33-253 213.33-280v-533.33q0-27 19.84-46.84Q253-880 280-880h533.33q27 0 46.84 19.83Q880-840.33 880-813.33V-280q0 27-19.83 46.83-19.84 19.84-46.84 19.84H280Zm0-66.67h533.33v-533.33H280V-280ZM146.67-80q-27 0-46.84-19.83Q80-119.67 80-146.67v-600h66.67v600h600V-80h-600ZM280-813.33V-280v-533.33Z"/></svg>
+
+              <svg xmlns="http://www.w3.org/2000/svg"
+                height="40px"
+                viewBox="0 -960 960 960"
+                width="40px"
+                fill="#E9D5FF">
+
+                <path d="M350-384.67h394l-130.67-174-99.33 130-66-84.66-98 128.66Zm-70 171.34q-27 0-46.83-19.84Q213.33-253 213.33-280v-533.33q0-27 19.84-46.84Q253-880 280-880h533.33q27 0 46.84 19.83Q880-840.33 880-813.33V-280q0 27-19.83 46.83-19.84 19.84-46.84 19.84H280Zm0-66.67h533.33v-533.33H280V-280ZM146.67-80q-27 0-46.84-19.83Q80-119.67 80-146.67v-600h66.67v600h600V-80h-600ZM280-813.33V-280v-533.33Z"/>
+
+              </svg>
+
             </a>
+
           </li>
+
         </ul>
+
       </div>
 
-    
+
+    </div>
+
 
   </div>
+
+
+
+  <!-- =====================================================
+       PEDIDO DE NAMORO
+       ===================================================== -->
+
+  <section class="pedido-namoro">
+
+    <div class="pedido-numero">
+      [ ISA ]
+    </div>
+
+
+    <h1 class="pedido-titulo">
+      TENHO UMA PERGUNTA...
+    </h1>
+
+
+    <p class="pedido-texto">
+
+      depois de tudo que a gente viveu e de todos os momentos
+      que compartilhamos, eu queria te fazer uma pergunta
+      que significa muito pra mim.
+
+    </p>
+
+
+    <div class="pedido-pergunta">
+
+      VOCE ACEITA NAMORAR COMIGO?
+
+    </div>
+
+
+    <!-- BOTOES -->
+
+    <div class="pedido-botoes" id="pedidoBotoes">
+
+      <button
+        class="pedido-botao botao-sim"
+        onclick="responderSim()">
+
+        SIM
+
+      </button>
+
+
+      <button
+        class="pedido-botao botao-nao"
+        onclick="responderNao()">
+
+        NAO
+
+      </button>
+
+    </div>
+
+
+    <!-- RESULTADO -->
+
+    <div
+      class="pedido-resultado"
+      id="pedidoResultado">
+
+      <h2 id="resultadoTitulo"></h2>
+
+      <p id="resultadoTexto"></p>
+
+      <button
+        class="pedido-voltar"
+        onclick="voltarPedido()">
+
+        VOLTAR
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+
 </body>
 
 
 
 <script>
+
+  /* =====================================================
+     TEMA ORIGINAL
+     ===================================================== */
+
   const button = document.getElementById('theme-toggle');
+
   const html = document.documentElement;
+
   const iconSun = document.getElementById('icon-sun');
+
   const iconMoon = document.getElementById('icon-moon');
 
-  button.addEventListener('click', () => {
-    html.classList.toggle('dark');
-    if (html.classList.contains('dark')) {
-      document.body.classList.add('bg-[#0a0a0a]', 'text-white');
-      document.body.classList.remove('bg-white', 'text-black');
-      iconSun.classList.remove('hidden');
-      iconMoon.classList.add('hidden');
-    } else {
-      document.body.classList.add('bg-white', 'text-black');
-      document.body.classList.remove('bg-[#0a0a0a]', 'text-white');
-      iconSun.classList.add('hidden');
-      iconMoon.classList.remove('hidden');
-    }
-  });
-</script>
 
-<script>
+  button.addEventListener('click', () => {
+
+    html.classList.toggle('dark');
+
+
+    if (html.classList.contains('dark')) {
+
+      document.body.classList.add(
+        'bg-[#0a0a0a]',
+        'text-white'
+      );
+
+      document.body.classList.remove(
+        'bg-white',
+        'text-black'
+      );
+
+      iconSun.classList.remove('hidden');
+
+      iconMoon.classList.add('hidden');
+
+    } else {
+
+      document.body.classList.add(
+        'bg-white',
+        'text-black'
+      );
+
+      document.body.classList.remove(
+        'bg-[#0a0a0a]',
+        'text-white'
+      );
+
+      iconSun.classList.add('hidden');
+
+      iconMoon.classList.remove('hidden');
+
+    }
+
+  });
+
+
+
+  /* =====================================================
+     PEDIDO DE NAMORO
+     ===================================================== */
+
+  function responderSim() {
+
+    document.getElementById('pedidoResultado').style.display = 'block';
+
+    document.getElementById('resultadoTitulo').innerText =
+      'ENTAO E UM SIM? <3';
+
+    document.getElementById('resultadoTexto').innerText =
+      'eu fico muito feliz com a sua resposta. obrigado por escolher viver essa historia comigo.';
+
+    document.getElementById('pedidoBotoes').style.display = 'none';
+
+  }
+
+
+
+  function responderNao() {
+
+    document.getElementById('pedidoResultado').style.display = 'block';
+
+    document.getElementById('resultadoTitulo').innerText =
+      'TUDO BEM.';
+
+    document.getElementById('resultadoTexto').innerText =
+      'obrigado por ser sincera comigo. independente da resposta, eu respeito a sua escolha.';
+
+    document.getElementById('pedidoBotoes').style.display = 'none';
+
+  }
+
+
+
+  function voltarPedido() {
+
+    document.getElementById('pedidoResultado').style.display = 'none';
+
+    document.getElementById('pedidoBotoes').style.display = 'flex';
+
+  }
+
+
+
+  /* =====================================================
+     SEU SCRIPT ORIGINAL DE PESQUISA
+     ===================================================== */
+
   const searchInput = document.getElementById('searchInput');
+
   const products = document.querySelectorAll('.product');
 
-  searchInput.addEventListener('input', () => {
-    const searchTerm = searchInput.value.toLowerCase();
 
-    products.forEach(product => {
-      const title = product.querySelector('p.font-semibold').textContent.toLowerCase();
-      const description = product.querySelector('p.text-xs').textContent.toLowerCase();
+  if (searchInput) {
 
-      if (title.includes(searchTerm) || description.includes(searchTerm)) {
-        product.style.display = 'block';
-      } else {
-        product.style.display = 'none';
-      }
+    searchInput.addEventListener('input', () => {
+
+      const searchTerm =
+        searchInput.value.toLowerCase();
+
+
+      products.forEach(product => {
+
+        const title =
+          product.querySelector('p.font-semibold')
+            ?.textContent
+            .toLowerCase() || '';
+
+
+        const description =
+          product.querySelector('p.text-xs')
+            ?.textContent
+            .toLowerCase() || '';
+
+
+        if (
+          title.includes(searchTerm) ||
+          description.includes(searchTerm)
+        ) {
+
+          product.style.display = 'block';
+
+        } else {
+
+          product.style.display = 'none';
+
+        }
+
+      });
+
     });
-  });
+
+  }
+
 </script>
 
 </html>
