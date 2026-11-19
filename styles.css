@@ -1,0 +1,135 @@
+.merienda-uniquifier> {
+    font-family: "Merienda", cursive;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+  }
+  
+  
+         .img-main{
+          /*border: 3px solid lime;*/
+          margin: 10px;
+          max-width: 80px;
+           border-radius: 50%;
+         }
+  
+      *{
+          font-family: "Merienda", cursive;
+      }
+  
+      body {
+          
+          font-weight: 400;
+          font-family: 'Open Sans', sans-serif;
+          }
+  
+      .bg-custom {
+          background-image: url('img/tesoura.jpg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          }
+  
+          .bg-custom2 {
+         
+              background-image: url('img/troll-face-poster.png');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          
+      }
+  
+      .bg-custom-main{
+          background-image: url('img/tesoura.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+      }
+  
+          .bg-custom02 {
+              background-image: url('img/06ee2b25bec1ee1c9f855f2578b0c362.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     }
+     .bg-custom03 {
+      background-image: url('img/06ee2b25bec1ee1c9f855f2578b0c362.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     }
+     .bg-custom04 {
+      background-image: url('img/06ee2b25bec1ee1c9f855f2578b0c362.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     }
+     .bg-custom05 {
+         
+      background-image: url('img/06ee2b25bec1ee1c9f855f2578b0c362.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     }
+     .bg-custom06 {
+         
+      background-image: url('img/06ee2b25bec1ee1c9f855f2578b0c362.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     }
+  
+     .bg-custom07{
+      background-image: url('img/06ee2b25bec1ee1c9f855f2578b0c362.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     }
+  
+     .mainimage3{
+      /*border-top: 1px dashed rgb(255, 255, 255);*/
+      
+     
+     }
+  
+     .border-custom{
+     /* border: 2px dashed rgba(255, 255, 255, 0.452);*/
+     }
+  
+     .frorm-01{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -210%);
+     }
+  
+     .paragrafo-main{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -140%);
+     }
+  
+     .imgdata{
+     
+     }
+  
+     header{
+      background-color: black;
+      z-index: 1000;
+     }
+  
+      .bg-custon-container{
+          background-image: url('img/tesoura.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+      }
+  
+      .img-primaria{
+      
+      }
+  
+      .bg-primaria{
+      
+      }
+    
+  
