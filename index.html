@@ -203,6 +203,57 @@
     }
 
   }
+  
+  /* TEMA BRANCO - PEDIDO DE NAMORO */
+html:not(.dark) .pedido-namoro {
+  background: rgba(0, 0, 0, 0.92);
+  border-color: black;
+  box-shadow: 8px 8px 0px #E9D5FF;
+}
+
+html:not(.dark) .pedido-titulo {
+  color: white;
+}
+
+html:not(.dark) .pedido-texto {
+  color: white;
+}
+
+html:not(.dark) .pedido-pergunta {
+  color: white;
+}
+
+html:not(.dark) .pedido-numero {
+  color: #E9D5FF;
+}
+
+html:not(.dark) .pedido-resultado h2 {
+  color: #E9D5FF;
+}
+
+html:not(.dark) .pedido-resultado p {
+  color: white;
+}
+
+html:not(.dark) .pedido-voltar {
+  color: white;
+  border-color: #777;
+}
+
+.botao-compartilhar {
+  background: #E9D5FF;
+  color: #000;
+  border: 2px solid #fff;
+  margin: 20px auto 10px;
+  display: block;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.botao-compartilhar:hover {
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 0 #fff;
+}
 </style>
 
 
@@ -315,77 +366,75 @@
 
   <section class="pedido-namoro">
 
-    <div class="pedido-numero">
-      [ ISA ]
-    </div>
+  <div class="pedido-numero">
+    [ ISA ]
+  </div>
 
+  <h1 class="pedido-titulo">
+    TENHO UMA PERGUNTA...
+  </h1>
 
-    <h1 class="pedido-titulo">
-      TENHO UMA PERGUNTA...
-    </h1>
+  <p class="pedido-texto">
+    depois de tudo que a gente viveu e de todos os momentos
+    que compartilhamos, eu queria te fazer uma pergunta
+    que significa muito pra mim.
+  </p>
 
+  <div class="pedido-pergunta">
+    VOCE ACEITA NAMORAR COMIGO?
+  </div>
 
-    <p class="pedido-texto">
+  <!-- BOTOES -->
 
-      depois de tudo que a gente viveu e de todos os momentos
-      que compartilhamos, eu queria te fazer uma pergunta
-      que significa muito pra mim.
+  <div class="pedido-botoes" id="pedidoBotoes">
 
-    </p>
+    <button
+      class="pedido-botao botao-sim"
+      onclick="responderSim()">
+      SIM
+    </button>
 
+    <button
+      class="pedido-botao botao-nao"
+      onclick="responderNao()">
+      NAO
+    </button>
 
-    <div class="pedido-pergunta">
+  </div>
 
-      VOCE ACEITA NAMORAR COMIGO?
+  <!-- RESULTADO -->
 
-    </div>
+  <div
+    class="pedido-resultado"
+    id="pedidoResultado">
 
+    <h2 id="resultadoTitulo"></h2>
 
-    <!-- BOTOES -->
+    <p id="resultadoTexto"></p>
 
-    <div class="pedido-botoes" id="pedidoBotoes">
+    <!-- BOTAO DE COMPARTILHAR -->
 
-      <button
-        class="pedido-botao botao-sim"
-        onclick="responderSim()">
+    <button
+      class="pedido-botao botao-compartilhar"
+      id="botaoCompartilhar"
+      onclick="compartilharSim()"
+      style="display: none;">
 
-        SIM
+      💌 COMPARTILHAR COM ELE
 
-      </button>
+    </button>
 
+    <button
+      class="pedido-voltar"
+      onclick="voltarPedido()">
 
-      <button
-        class="pedido-botao botao-nao"
-        onclick="responderNao()">
+      VOLTAR
 
-        NAO
+    </button>
 
-      </button>
+  </div>
 
-    </div>
-
-
-    <!-- RESULTADO -->
-
-    <div
-      class="pedido-resultado"
-      id="pedidoResultado">
-
-      <h2 id="resultadoTitulo"></h2>
-
-      <p id="resultadoTexto"></p>
-
-      <button
-        class="pedido-voltar"
-        onclick="voltarPedido()">
-
-        VOLTAR
-
-      </button>
-
-    </div>
-
-  </section>
+</section>
 
 
 
@@ -395,6 +444,78 @@
 
 <script>
 
+
+function responderSim() {
+
+  document.getElementById('pedidoResultado').style.display = 'block';
+
+  document.getElementById('resultadoTitulo').innerText =
+    'ENTAO E UM SIM? ❤️';
+
+  document.getElementById('resultadoTexto').innerText =
+    'eu fico muito feliz com a sua resposta. obrigado por escolher viver essa historia comigo. ❤️';
+
+  document.getElementById('pedidoBotoes').style.display = 'none';
+
+  // mostra o botao de compartilhar somente no SIM
+  document.getElementById('botaoCompartilhar').style.display = 'inline-block';
+}
+
+
+function responderNao() {
+
+  document.getElementById('pedidoResultado').style.display = 'block';
+
+  document.getElementById('resultadoTitulo').innerText =
+    'TUDO BEM.';
+
+  document.getElementById('resultadoTexto').innerText =
+    'obrigado por ser sincera comigo. independente da resposta, eu respeito a sua escolha.';
+
+  document.getElementById('pedidoBotoes').style.display = 'none';
+
+  // garante que o botao de compartilhar fique escondido
+  document.getElementById('botaoCompartilhar').style.display = 'none';
+}
+
+
+function voltarPedido() {
+
+  document.getElementById('pedidoResultado').style.display = 'none';
+
+  document.getElementById('pedidoBotoes').style.display = 'flex';
+
+  // esconde novamente o botao de compartilhar
+  document.getElementById('botaoCompartilhar').style.display = 'none';
+}
+
+
+function compartilharSim() {
+
+  const mensagem =
+    '💌 eu respondi a sua pergunta...\n\n' +
+    'e sim, eu aceito namorar com voce! ❤️\n\n' +
+    'agora voce pode comemorar KKKKK\n' +
+    'te amo. ❤️';
+
+  if (navigator.share) {
+
+    navigator.share({
+      title: 'minha resposta ❤️',
+      text: mensagem
+    });
+
+  } else {
+
+    navigator.clipboard.writeText(mensagem);
+
+    alert(
+      'a mensagem foi copiada! agora e so mandar para ele no Discord ❤️'
+    );
+
+  }
+
+}
   /* =====================================================
      TEMA ORIGINAL
      ===================================================== */
